@@ -7,7 +7,7 @@ COMS W4701 Artificial Intelligence - Programming Homework 2
 An AI player for Othello. This is the template file that you need to  
 complete and submit. 
 
-@author: YOUR NAME AND UNI 
+@author: Aidan Friedsam, Seyi Oderinde, Pranav Guhathakurta
 """
 
 import random
@@ -45,6 +45,8 @@ def minimax_min_node(board, color, DEPTH_LIMIT, depth):
       if score < best_score: 
         best_move = move
         best_score = score
+        if move == (7,7) or move == (0,0) or move == (7,0) or move == (0,7):
+          best_score -= 2
 
     return best_score 
       
@@ -70,6 +72,8 @@ def minimax_max_node(board, color, DEPTH_LIMIT, depth):
       if score > best_score: 
         best_move = move
         best_score = score
+        if move == (7,7) or move == (0,0) or move == (7,0) or move == (0,7):
+          best_score += 2 # try 2
 
     return best_score 
 
